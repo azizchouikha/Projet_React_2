@@ -1,0 +1,28 @@
+.header {
+    background-color: #03203e;
+    height: 300px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 20px;
+  }
+  
+  .header-logo {
+    height: 100px;
+    width: auto;
+    margin-bottom: 50px; 
+  }
+  
+  .search-container {
+    align-self: flex-end; 
+    width: 100%; 
+    display: flex;
+    justify-content: flex-end; 
+    padding-right: 50px; 
+  }
+  
+  .search-input {
+    padding: 10px;
+    font-size: 1em;
+  }
