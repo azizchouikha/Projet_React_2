@@ -1,0 +1,13 @@
+/* PokemonDetails.css */
+.pokemon-details {
+    display: flex;           /* Utilisez flexbox pour aligner les éléments */
+    flex-direction: column;  /* Organisez les enfants verticalement */
+    align-items: center;     /* Centrez les éléments horizontalement */
+    justify-content: center; /* Centrez les éléments verticalement */
+    text-align: center;      /* Assurez-vous que le texte est centré */
+    padding: 20px;           /* Un peu de padding pour l'esthétique */
+    margin: auto;            /* Centrez le conteneur lui-même */
+    max-width: 400px;        /* Maximum width of the details card */
+  }
+  
+  /* Vous pouvez ajouter plus de styles pour embellir votre fiche, comme des marges et des bordures pour les images, etc. */
