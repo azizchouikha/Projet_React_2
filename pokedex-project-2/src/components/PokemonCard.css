@@ -55,7 +55,7 @@
   display: flex;
   justify-content: space-around; 
   align-items: center;
-  flex-direction: wrap; 
+  flex-direction: column; 
 }
 .pokemon-generation, .pokemon-types {
   margin-top: 20px;

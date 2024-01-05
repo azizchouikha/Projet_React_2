@@ -5,8 +5,8 @@ const PokemonDetails = ({ data, onBackClick }) => {
     const { hp, atk, def, vit, spe_atk, spe_def } = data.stats;
     return (
         <div className="pokemon-details">
-            <h2> {data.id}. {data.name.en} </h2>
-            <img src={data.image} alt={data.name.en} />
+            <h2> {data.id}. {data.name.fr} </h2>
+            <img src={data.image} alt={data.name.fr} />
             <div className="detail-group">
                 <span>Génération: {data.generation}</span>
                 <span>Type(s): {data.types.join(', ')}</span>

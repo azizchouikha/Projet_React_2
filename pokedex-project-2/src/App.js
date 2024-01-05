@@ -8,6 +8,7 @@ function App() {
   const [pokemons, setPokemons] = useState([]); 
   const [searchTerm, setSearchTerm] = useState(''); 
   const [selectedPokemon, setSelectedPokemon] = useState(null); 
+  const [types, setTypes] = useState([]);  
   useEffect(() => {
 
     const fetchPokemons = async () => {
@@ -19,12 +20,38 @@ function App() {
         console.error("Erreur lors de la récupération des données :", error);
       }
     };
+    const fetchTypes = async () => {
+      try {
+        const response = await fetch('https://pokedex-api.3rgo.tech/api/types');
+        const data = await response.json();
+        if (data.success) {
+          setTypes(data.data); 
+        }
+      } catch (error) {
+        console.error("Erreur lors de la récupération des types:", error);
+      }
+    };
 
     fetchPokemons(); 
+    fetchTypes();
   }, []);
   const filteredPokemons = pokemons.filter(pokemon =>
     pokemon.name.en.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  
+const getTypeNamesByIds = (typeIds) => {
+  return typeIds.map(typeId => {
+      const type = types.find(t => t.id === typeId);
+      return type ? type.name.fr : "Inconnu";  
+  });
+};
+
+
+const mappedPokemons = filteredPokemons.map(pokemon => ({
+  ...pokemon,
+  types: getTypeNamesByIds(pokemon.types)  
+}));
 
   
   const handleSearchChange = (event) => {
@@ -38,7 +65,6 @@ function App() {
   const handleBackClick = () => {
       setSelectedPokemon(null);
   };
-
   return (
     <div className="App">
         <Header onSearchChange={handleSearchChange} />
@@ -46,7 +72,7 @@ function App() {
             <PokemonDetails data={selectedPokemon} onBackClick={handleBackClick} />
         ) : (
             <div className="pokemon-cards-container">
-                {filteredPokemons.map((pokemon, index) => (
+                {mappedPokemons.map((pokemon, index) => (  
                     <div onClick={() => handlePokemonSelect(pokemon)} key={index}>
                         <PokemonCard data={pokemon} />
                     </div>
@@ -54,7 +80,7 @@ function App() {
             </div>
         )}
     </div>
-);
+  );
 }
 
 export default App;
