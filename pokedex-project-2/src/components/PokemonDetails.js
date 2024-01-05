@@ -1,4 +1,3 @@
-// Dans PokemonDetails.js
 import React from 'react';
 import './PokemonDetails.css';
 
@@ -6,25 +5,28 @@ const PokemonDetails = ({ data, onBackClick }) => {
     const { hp, atk, def, vit, spe_atk, spe_def } = data.stats;
     return (
         <div className="pokemon-details">
-            
-            <h2>{data.name.en} (#{data.id})</h2>
+            <h2> {data.id}. {data.name.en} </h2>
             <img src={data.image} alt={data.name.en} />
-            <img src={data.image_shiny} alt={`Shiny ${data.name.en}`} style={{ display: "none" }} /> {/* Pour l'alterner, voir note ci-dessous */}
-            <p>Génération: {data.generation}</p>
-            <p>Type(s): {data.types.join(', ')}</p>
-            <p>Taille: {data.height} m</p>
-            <p>Poids: {data.weight} kg</p>
+            <div className="detail-group">
+                <span>Génération: {data.generation}</span>
+                <span>Type(s): {data.types.join(', ')}</span>
+                <span>Taille: {data.height} m</span>
+                <span>Poids: {data.weight} kg</span>
+            </div>
             <div className="pokemon-stats">
                 <h3>Statistiques :</h3>
-                <p>HP: {hp}</p>
-                <p>Attaque: {atk}</p>
-                <p>Défense: {def}</p>
-                <p>Vitesse: {vit}</p>
-                <p>Attaque Spéciale: {spe_atk}</p>
-                <p>Défense Spéciale: {spe_def}</p>
+                <table>
+                    <tbody>
+                        <tr><td>HP:</td><td>{hp}</td></tr>
+                        <tr><td>Attaque:</td><td>{atk}</td></tr>
+                        <tr><td>Défense:</td><td>{def}</td></tr>
+                        <tr><td>Vitesse:</td><td>{vit}</td></tr>
+                        <tr><td>Attaque Spéciale:</td><td>{spe_atk}</td></tr>
+                        <tr><td>Défense Spéciale:</td><td>{spe_def}</td></tr>
+                    </tbody>
+                </table>
             </div>
-           
-            <button onClick={onBackClick}>Retour à la liste</button>
+            <button onClick={onBackClick} className="back-button">Retour à la liste</button>
         </div>
     );
 };

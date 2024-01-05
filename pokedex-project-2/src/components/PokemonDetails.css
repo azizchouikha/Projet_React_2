@@ -1,13 +1,61 @@
 /* PokemonDetails.css */
+body{
+  background-color: #b0c4de; 
+}
 .pokemon-details {
-    display: flex;           /* Utilisez flexbox pour aligner les éléments */
-    flex-direction: column;  /* Organisez les enfants verticalement */
-    align-items: center;     /* Centrez les éléments horizontalement */
-    justify-content: center; /* Centrez les éléments verticalement */
-    text-align: center;      /* Assurez-vous que le texte est centré */
-    padding: 20px;           /* Un peu de padding pour l'esthétique */
-    margin: auto;            /* Centrez le conteneur lui-même */
-    max-width: 400px;        /* Maximum width of the details card */
-  }
-  
-  /* Vous pouvez ajouter plus de styles pour embellir votre fiche, comme des marges et des bordures pour les images, etc. */
+    display: flex;          
+    flex-direction: column;  
+    align-items: center;    
+    justify-content: center; 
+    text-align: center;      
+    padding: 20px;           
+    margin: auto;            
+    max-width: 700px;        
+    border: 5px solid #04042a; 
+    margin-top: 50px;
+}
+   
+
+ 
+
+
+.detail-group {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px 0; 
+}
+
+.pokemon-stats table {
+  margin-top: 10px;
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+.pokemon-stats td {
+  border: 1px solid #ddd; 
+  padding: 5px;
+  text-align: left;
+}
+
+.pokemon-details .back-button {
+  padding: 10px 20px;
+  margin-top: 30px;
+  border: 2px solid #04042a; 
+  background-color: transparent; 
+  color: #04042a; 
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.pokemon-details .back-button:hover {
+  background-color:  #04042a;
+  color: white; 
+}
+
+
+
+.text, .back-button, .pokemon-name, .pokemon-number {
+  font-size: 1em; 
+}

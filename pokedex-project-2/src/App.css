@@ -1,1 +1,29 @@
-
+/* App.css*/
+@media (max-width: 768px) {
+    
+    .pokemon-cards-container {
+      gap: 5px; 
+    }
+  
+    .pokemon-card {
+      width: calc(30% - 20px); 
+    }
+  
+    .pokemon-details, .pokemon-card, .header {
+      padding: 10px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pokemon-card {
+      width: 100%;
+    }
+  
+    .header, .search-container, .pokemon-details {
+      flex-direction: column; 
+    }
+  }
+  .pokemon-cards-container {
+    display: flex; 
+    flex-wrap: wrap;
+  }
